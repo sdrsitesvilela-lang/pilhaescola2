@@ -1,0 +1,11 @@
+const test = require('node:test');
+const assert = require('node:assert/strict');
+const {parseVoltage,parseQuantity,calculate} = require('../data/logic.js');
+test('aceita virgula decimal',()=>assert.equal(parseVoltage('0,75'),0.75));
+test('aceita voltagem 0',()=>assert.equal(parseVoltage('0'),0));
+test('rejeita valores negativos e texto',()=>{assert.equal(parseVoltage('-1'),null);assert.equal(parseVoltage('teste'),null);});
+test('rejeita voltagem acima do limite',()=>assert.equal(parseVoltage('11'),null));
+test('quantidade deve ser inteira e positiva',()=>{assert.equal(parseQuantity('3'),3);assert.equal(parseQuantity('2.5'),null);assert.equal(parseQuantity('0'),null);});
+test('soma celulas em serie',()=>assert.deepEqual(calculate([{voltage:0.5,quantity:3},{voltage:0.7,quantity:2}]),{total:2.9,cells:5}));
+test('sem celulas retorna 0',()=>assert.deepEqual(calculate([]),{total:0,cells:0}));
+test('rejeita item invalido',()=>assert.throws(()=>calculate([{voltage:-5,quantity:2}]),RangeError));

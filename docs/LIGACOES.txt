@@ -1,0 +1,27 @@
+PILHALAB | Esquema de montagem (somente baixas tensoes, maximo 10 V)
+
+                      1 MOhm
+PILHA (+) -----------/\/\/\/\/\------o---------- A0 do ADS1115
+                                    |
+                                    +--[ 330 kOhm ]-- GND
+                                    |
+                                    +--[ 100 nF ]---- GND   (opcional)
+
+PILHA (-) --------------------------- GND do ADS1115 / ESP32
+
+ESP32 DevKit                  ADS1115
+------------------------------------------------
+3V3 ------------------------- VDD
+GND ------------------------- GND
+GPIO 21 --------------------- SDA
+GPIO 22 --------------------- SCL
+GND ------------------------- ADDR  (I2C 0x48)
+
+OBSERVACOES
+- ESP32 e alimentado pelo proprio cabo USB, NAO pela pilha experimental.
+- Use resistor 1 MOhm na perna positiva da pilha antes do pino A0.
+- O resistor de 330 kOhm vai do pino A0 ao terra; e o divisor.
+- GND da pilha, ADS1115 e ESP32 precisa estar em comum.
+- Desconecte antes de refazer fios. Nao inverta a polaridade.
+- Somente baixas tensoes de pilhas experimentais (maximo 10 V).
+- Nunca conectar rede eletrica, tomadas, fonte desconhecida, bateria automotiva etc.

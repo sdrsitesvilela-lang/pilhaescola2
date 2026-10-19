@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#05080e" />
+  <meta name="description" content="DABDM — registro manual, análise e comparação das tensões de uma pilha experimental." />
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="styles.css" /><link rel="stylesheet" href="editorial.css" />
+  <title>DABDM — Leitor de Voltagem da Pilha</title>
+</head>
+<body class="lab-edition">
+  <div id="intro" class="intro" aria-hidden="true">
+    <div class="intro-grid"></div><div class="particles"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="intro-content"><span class="intro-eyebrow">CIÊNCIA EM CADA VOLT</span>
+      <div class="intro-brand"><span>D</span><span>A</span><span>B</span><span>D</span><span>M</span></div>
+      <p>Sistema de Monitoramento de Voltagem</p>
+      <div class="intro-track"><div id="introBar"></div></div>
+      <div class="intro-bottom"><span>INICIANDO EXPERIÊNCIA</span><span id="introPercent">0%</span></div>
+      <small>Apresentação visual · sem conexão com instrumentos</small>
+    </div>
+  </div>
+  <script src="intro.js"></script>
+  <div class="app-shell">
+<header class="editorial-nav"><a class="wordmark" href="index.html">DABDM<span>CIÊNCIA · CULTURA · EXPERIMENTO</span></a><nav aria-label="Navegação principal"><a href="index.html" aria-current="page">Laboratório</a><a href="historia.html">História</a><a href="relatorio.html">Relatório</a><a href="equipe.html">Equipe</a></nav></header>
+
+    <main id="inicio">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow"><span class="eyebrow-line"></span> CADERNO 04 / LABORATÓRIO MANUAL</span>
+          <h1>Leitor de Voltagem<br><em>da Pilha.</em></h1>
+          <p>Da bancada para a tela. Registre a leitura do multímetro e descubra o que os seus resultados revelam.</p>
+          <div class="hero-tags"><a href="#registrar">01 / REGISTRAR ↗</a><a href="#grafico">02 / ANALISAR ↗</a><a href="#historico">03 / HISTÓRICO ↗</a></div>
+        </div>
+        <div class="experiment-art" aria-hidden="true">
+          <span class="art-caption">CÉLULA ELETROQUÍMICA / ESQUEMA</span>
+          <svg viewBox="0 0 400 270" fill="none"><defs><linearGradient id="liquid" x2="0" y2="1"><stop stop-color="#2076ff" stop-opacity=".3"/><stop offset="1" stop-color="#2076ff" stop-opacity=".04"/></linearGradient></defs>
+          <path d="M75 80V225Q75 240 90 240H310Q325 240 325 225V80" stroke="#486484" stroke-width="2"/>
+          <path d="M77 140Q140 131 200 140T323 140V225Q323 238 310 238H90Q77 238 77 225Z" fill="url(#liquid)"/>
+          <path d="M130 175V48H270V175" stroke="#3086ff" stroke-width="2" stroke-dasharray="4 5"/>
+          <rect x="117" y="90" width="26" height="113" rx="3" fill="#162d48" stroke="#7ba7d4"/><rect x="257" y="90" width="26" height="113" rx="3" fill="#553728" stroke="#d1a183"/>
+          <circle cx="200" cy="48" r="24" fill="#0a1422" stroke="#3489ff"/><text x="200" y="55" text-anchor="middle" fill="#87baff" font-size="20">V</text>
+          <text x="130" y="76" text-anchor="middle" fill="#92a6bd" font-size="11">ZINCO −</text><text x="270" y="76" text-anchor="middle" fill="#92a6bd" font-size="11">COBRE +</text><text x="200" y="221" text-anchor="middle" fill="#91b6e4" font-size="10" letter-spacing="2">ÁGUA + SAL</text>
+          <path d="M166 168h9m-4-4v8m40-1h8m-4-4v8m-30 19h8" stroke="#6daaff" stroke-width="2"/>
+          </svg><span class="art-bottom">MULTÍMETRO FÍSICO → REGISTRO MANUAL</span>
+        </div>
+      </section>
+      <div class="workflow-note"><span class="note-dot"></span> Você mede. O DABDM organiza. <span>Sem leitura automática e sem dados simulados.</span></div>
+      <div class="section-intro"><span>PAINEL DE CONTROLE</span><strong>01 — Experimento</strong></div>
+
+      <section class="dashboard" aria-label="Painel do experimento">
+        <article id="registrar" class="panel realtime-panel">
+          <div class="panel-title-row"><div><div class="kicker">01 / DADOS EXPERIMENTAIS</div><h2>Registrar medição</h2></div><span class="state-chip connected">ENTRADA MANUAL</span></div>
+          <p class="muted">Leia a tensão no multímetro e digite exatamente o valor observado.</p>
+          <form id="measurementForm" novalidate>
+            <label for="measurementType">TIPO DE PILHA</label>
+            <select id="measurementType"><option>Água e sal</option><option>Limão</option><option>Batata</option><option>Outro experimento</option></select>
+            <label for="measurementVoltage">VOLTAGEM MEDIDA (V)</label>
+            <div class="measurement-input"><input id="measurementVoltage" type="text" inputmode="decimal" autocomplete="off" placeholder="0,000" aria-describedby="measurementHelp measurementError"/><span>V</span></div>
+            <p id="measurementHelp" class="smallnote">Aceita vírgula ou ponto · faixa mantida do projeto: 0 a 10 V.</p>
+            <div id="measurementError" class="form-error" role="alert"></div>
+            <button class="btn btn-lime" type="submit">Registrar medição <svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5"/></svg></button>
+          </form>
+          <div class="last-reading"><span>ÚLTIMA MEDIÇÃO DIGITADA</span><strong id="liveVoltage">—</strong><small id="readingHint">Seu primeiro registro começa aqui.</small></div>
+          <p id="storageStatus" class="smallnote" role="status">Registros salvos apenas neste navegador.</p>
+        </article>
+
+        <article class="panel calculate-panel">
+          <div class="panel-title-row"><div><div class="kicker">02 / MODELO TEÓRICO</div><h2>Células em série</h2></div><span class="calc-icon" aria-hidden="true">∑</span></div>
+          <p class="muted">Informe a tensão por célula e a quantidade de células iguais em série. Você também pode somar grupos diferentes.</p>
+          <form id="cellForm" novalidate>
+            <label for="cellType">TIPO DE PILHA</label>
+            <select id="cellType"><option>Água e sal</option><option>Limão</option><option>Batata</option><option>Outro experimento</option></select>
+            <div class="two-cols"><div><label for="cellVoltage">TENSÃO POR CÉLULA (V)</label><input id="cellVoltage" aria-describedby="formError" type="text" inputmode="decimal" placeholder="Ex.: 0,75" autocomplete="off" /></div><div><label for="cellQuantity">QUANTIDADE</label><input id="cellQuantity" aria-describedby="formError" inputmode="numeric" type="number" min="1" max="100" step="1" value="1" /></div></div>
+            <div id="formError" class="form-error" role="alert" aria-live="polite"></div>
+            <button class="btn btn-add" type="submit"><span>+ Adicionar ao cálculo</span><svg aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none"><path d="M3 13L13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5"/></svg></button>
+          </form>
+          <div class="calc-list-head"><span>CÉLULAS INSERIDAS</span><button id="clearCells" class="mini-link" type="button">Limpar tudo</button></div>
+          <ul id="cellList" class="cell-list"><li class="empty-list">Nenhuma célula adicionada ainda.</li></ul>
+          <div class="calc-result"><span>TENSÃO TOTAL CALCULADA</span><div><strong id="totalVoltage">0,00</strong><span> V</span></div><small id="formula">Adicione células para ver o resultado.</small></div>
+          <p id="manualWarning" class="safety-note" role="alert" hidden>O total é uma previsão matemática, não uma medição do conjunto.</p>
+          <button id="saveManual" class="btn btn-outline" type="button" disabled>Salvar cálculo teórico</button>
+        </article>
+      </section>
+
+      <div class="section-intro section-gap"><span>ANÁLISE DO PROJETO</span><strong>02 — Resultados</strong></div>
+      <article id="grafico" class="panel chart-panel">
+        <div class="panel-title-row"><div><div class="kicker">SEUS DADOS / SEM ESTIMATIVAS</div><h2>Evolução das medições</h2></div><span id="sampleCount" class="count-pill">0 pontos</span></div>
+        <p class="muted">Somente leituras digitadas do multímetro. Cada ponto representa um registro, na ordem em que foi salvo.</p>
+        <div class="chart-scale"><span id="graphMax">— V</span><span>VOLTAGEM / V</span></div>
+        <div class="graph"><svg id="signalGraph" viewBox="0 0 600 160" preserveAspectRatio="none" role="img" aria-label="Gráfico das medições digitadas"><defs><linearGradient id="areaGradient" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="#3485ff" stop-opacity="0.3"/><stop offset="100%" stop-color="#3485ff" stop-opacity="0"/></linearGradient></defs><path d="M0 145 H600 M0 80 H600 M0 15 H600" stroke="#ffffff12" stroke-dasharray="4 6"/><path id="graphFill" fill="url(#areaGradient)"/><path id="graphLine" fill="none" stroke="#4d98ff" stroke-width="2.5"/><circle id="graphPoint" r="5" fill="#e5f0ff" stroke="#3485ff" stroke-width="3" visibility="hidden"/></svg><span id="graphEmpty" class="graph-empty">Registre uma medição para começar o gráfico.</span></div>
+        <div class="chart-scale"><span>0 V</span><span>ORDEM DOS REGISTROS →</span></div>
+        <label for="graphCursor" class="smallnote">Explore os registros: toque no gráfico ou deslize abaixo.</label>
+        <input id="graphCursor" type="range" min="0" max="0" value="0" disabled aria-label="Selecionar medição no gráfico"/>
+        <output id="graphDetail" for="graphCursor" aria-live="polite">Nenhum dado experimental registrado.</output>
+      </article>
+      <section class="lower-grid">
+        <article class="panel comparison">
+          <div class="kicker">COMPARATIVO</div><h2>Compare os resultados</h2>
+          <p class="muted">Selecione duas leituras do multímetro para observar a diferença.</p>
+          <div class="two-cols comparison-selects"><div><label for="compareA">MEDIÇÃO A</label><select id="compareA"></select></div><div><label for="compareB">MEDIÇÃO B</label><select id="compareB"></select></div></div>
+          <div class="compare-rows"><div><span>Medição A</span><strong id="compareFirst">—</strong></div><div><span>Medição B</span><strong id="compareReal">—</strong></div><div class="compare-last"><span>Diferença absoluta</span><strong id="compareDiff">—</strong></div></div>
+          <div class="theory-reference">Soma teórica atual <strong id="compareManual">0,00 V</strong></div><p class="explanation">Diferenças podem ocorrer pela resistência interna das células, conexões, carga e limitações da medição.</p>
+        </article>
+        <article id="historico" class="panel history">
+          <div class="history-top"><div><div class="kicker">DIÁRIO DO EXPERIMENTO</div><h2>Registros salvos</h2></div><span id="historyCount" class="count-pill">0</span></div>
+          <div id="historyList" class="history-list"><div class="empty-history">Nenhuma medição salva.<small>Seus registros ficam neste navegador.</small></div></div>
+          <div class="history-actions"><button id="exportCsv" class="btn btn-ghost" disabled>Exportar CSV ↓</button><button id="clearHistory" class="mini-link" disabled>Limpar registros</button></div>
+        </article>
+      </section>
+      <section class="how"><div><span class="eyebrow">CIÊNCIA QUE VOCÊ PODE EXPLICAR</span><h2>Da química à tecnologia.</h2><p>A reação eletroquímica entre eletrodos diferentes e um eletrólito pode produzir uma diferença de potencial. O aplicativo documenta essa diferença sem criar energia por conta própria.</p></div><div class="how-steps"><span><b>01</b> Monte uma célula experimental</span><span><b>02</b> Meça com o multímetro</span><span><b>03</b> Faça os cálculos e compare</span></div></section>
+    </main>
+    <footer><span>DABDM</span><span>Desenvolvimento Tecnológico · Dados reais, registro manual</span></footer>
+  </div>
+  <div id="toast" role="status" class="toast" aria-live="polite"></div>
+  <noscript>Ative o JavaScript para registrar e comparar suas medições.</noscript>
+  <script src="logic.js"></script><script src="app.js"></script>
+</body>
+</html>
