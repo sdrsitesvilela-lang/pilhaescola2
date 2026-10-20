@@ -99,8 +99,7 @@ O site agora tem quatro páginas conectadas:
 - **Equipe** (`equipe.html`): Davi Guimaraes, Ana Luiza Renar, Bernardo Vilela, Davi Favalessa e Maria Fernanda, conforme a lista atualizada solicitada.
 
 A identidade usa verde profundo, marfim, dourado discreto e tipografia serifada.
-O relatório informa LED aceso após ajustes, sem tensão registrada. Nenhum valor
-experimental foi inventado. A equação do zinco é identificada como exemplo, não
+O relatório atualizado descreve tentativas e ajustes, sem tensão numérica registrada nem confirmação expressa de LED aceso. Nenhum valor experimental foi inventado. A equação do zinco é identificada como exemplo, não
 como comprovação dos materiais/reação efetiva da montagem.
 
 Para a prévia completa, **extraia o ZIP inteiro e abra `index.html`**. Mantenha as
