@@ -102,7 +102,7 @@ A identidade usa verde profundo, marfim, dourado discreto e tipografia serifada.
 O relatório atualizado descreve tentativas e ajustes, sem tensão numérica registrada nem confirmação expressa de LED aceso. Nenhum valor experimental foi inventado. Os metais exatos dos eletrodos não foram identificados no documento; nenhuma reação específica foi atribuída à montagem sem evidência.
 
 Para a prévia completa, **extraia o ZIP inteiro e abra `index.html`**. Mantenha as
-outras páginas juntas para que a navegação funcione. Antes de publicar, substitua `documentos/relatorio-pilha-caseira.pdf` pelo PDF novo; só então reative os links de download.
+outras páginas juntas para que a navegação funcione. A página `relatorio.html` incorpora o conteúdo atualizado do relatório recebido; a cópia antiga em `documentos/` não é apresentada ao visitante nem oferecida para download. O arquivo legado pode ser substituído em uma próxima revisão.
 As páginas da prévia incorporam CSS/JS; não dependem de CDN ou fontes externas.
 Os links de referências só usam internet quando abertos explicitamente.
 
