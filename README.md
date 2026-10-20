@@ -95,16 +95,14 @@ O site agora tem quatro páginas conectadas:
 
 - **Laboratório** (`index.html`): registro manual existente, cálculo, gráfico, comparação e histórico.
 - **História** (`historia.html`): seis capítulos baseados no cartaz, com telefone ilustrado que acompanha a rolagem, progresso e animações que se repetem ao revisitar o conteúdo.
-- **Relatório** (`relatorio.html`): oito seções do PDF enviado, notas editoriais identificadas e acesso ao documento original sem alterações.
+- **Relatório** (`relatorio.html`): oito seções revisadas conforme o PDF mais recente, com materiais, montagem, tentativas e resultados documentados. O download do PDF antigo foi temporariamente desativado para evitar inconsistência.
 - **Equipe** (`equipe.html`): Davi Guimaraes, Ana Luiza Renar, Bernardo Vilela, Davi Favalessa e Maria Fernanda, conforme a lista atualizada solicitada.
 
 A identidade usa verde profundo, marfim, dourado discreto e tipografia serifada.
-O relatório informa LED aceso após ajustes, sem tensão registrada. Nenhum valor
-experimental foi inventado. A equação do zinco é identificada como exemplo, não
-como comprovação dos materiais/reação efetiva da montagem.
+O relatório atualizado descreve tentativas e ajustes, sem tensão numérica registrada nem confirmação expressa de LED aceso. Nenhum valor experimental foi inventado. Os metais exatos dos eletrodos não foram identificados no documento; nenhuma reação específica foi atribuída à montagem sem evidência.
 
 Para a prévia completa, **extraia o ZIP inteiro e abra `index.html`**. Mantenha as
-outras páginas e a pasta `documentos` juntas para que a navegação e o PDF funcionem.
+outras páginas juntas para que a navegação funcione. A página `relatorio.html` incorpora o conteúdo atualizado do relatório recebido; a cópia antiga em `documentos/` não é apresentada ao visitante nem oferecida para download. O arquivo legado pode ser substituído em uma próxima revisão.
 As páginas da prévia incorporam CSS/JS; não dependem de CDN ou fontes externas.
 Os links de referências só usam internet quando abertos explicitamente.
 
@@ -114,7 +112,7 @@ Gere novamente as prévias após alterações:
 python scripts/build-preview.py
 ```
 
-Validação atual: **16 testes passaram**, incluindo capítulos em ambas as direções,
+Validação da versão anterior: **16 testes passaram**, incluindo capítulos em ambas as direções,
 320–1440 px, nomes da equipe, leitura do PDF, navegação preservando registros,
 movimento reduzido e conteúdo visível sem JavaScript. Em segundo plano, o efeito
 contínuo é pausado; a rolagem usa eventos passivos e no máximo um frame pendente.
